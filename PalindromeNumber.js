@@ -3,10 +3,9 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    let reversed = [];
-    let regular = [];
     let holder = 0;
-
+    let sum = 0;
+    let original = x;
     if(x<0)
     {return false;}
 
@@ -14,24 +13,14 @@ var isPalindrome = function(x) {
     {return true;}
 
     else{
-
     while(x>0)
     {
         holder = x%10;
         x= (x -holder)/10;
-        console.log(holder,x);
-        reversed.push(holder);
-        
-    }
-
-    console.log(reversed);
-    for( i = reversed.length-1 ; i >= 0 ; --i )
-    regular.push(reversed[i]);
-    console.log(regular);
-
-    for( j = 0 ; j < regular.length ; j++)
-    if(regular[j] != reversed[j])
-    return false;
+        sum= sum*10 + holder;
+        }
+        if( original != sum)
+        return false;
     }
     return true;
 };
