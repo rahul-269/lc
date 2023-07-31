@@ -3,21 +3,16 @@
  * @return {number[]}
  */
 var plusOne = function(digits) {
-    a = digits.reverse();
-    a[0] = a[0]+1;
-    for( i = 0 ; i < a.length ; i++)
+    for(i = digits.length-1 ; i>=0 ; --i)
     {
-        if(a[i]>9 && a.length-1 ===i)
+        if(digits[i]<9) //add one if less than 9
         {
-            a[i] = 1;
-            a.reverse().push(0);
-            return a;
+            digits[i]++;
+            return digits; //break the loop and return here
         }
-        else if (a[i]>9)
-        {
-            a[i] = 0;
-            a[i+1] = a[i+1]+1;
-        }   
+        else
+        digits[i] = 0; //if 9 we make it zero
     }
-    return a.reverse();
+    digits.unshift(1);//we add one at the beginning of array for the carry over from making 9 as zero
+    return digits;//return the new array
 };
