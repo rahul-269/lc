@@ -9,7 +9,7 @@ var merge = function(nums1, m, nums2, n) {
     let j = 0; //position for nums2 elements
    for(i = 0; i<m+n ; ++i) //m+n is the loop length
    {
-     if(i >= m && nums1[i]===0 && j<n) // should be greater than m for the extra zeroes, j should be less than n to prevent unnecessary increments
+     if(i >= m && nums1[i]===0 && j<n) // should be greater than m for the extra zeroes, j should be less than n to prevent unnecessary increment of j
      {
          nums1[i]= nums2[j];
          j++;
